@@ -1,10 +1,8 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import PostCard from './components/postcard';
+import './App.css';
 
 function App() {
-
   const initialPosts = [
     {
       id: 1,
@@ -16,7 +14,7 @@ function App() {
     {
       id: 2,
       profileImage: 'https://writestylesonline.com/wp-content/uploads/2016/08/Follow-These-Steps-for-a-Flawless-Professional-Profile-Picture.jpg',
-      username: 'bob',
+      username: 'Sophie',
       content: 'Loving this social media app.',
       isLiked: true,
     },
@@ -30,10 +28,21 @@ function App() {
   ];
 
   return (
-    <>
-      
-    </>
-  )
+    <div>
+      <h1>Social Media Posts</h1>
+      <div>
+        {initialPosts.map((post) => (
+          <PostCard
+            key={post.id}
+            profilePic={post.profileImage}
+            username={post.username}
+            content={post.content}
+            isLiked={post.isLiked}  
+          />
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
